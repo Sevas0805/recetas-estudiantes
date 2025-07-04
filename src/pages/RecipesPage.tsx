@@ -3,6 +3,8 @@ import { useRecipes } from '../hooks/useRecipes';
 import RecipeCard from '../components/RecipeCard';
 import FilterBar from '../components/FilterBar';
 
+
+
 const RecipesPage: React.FC = () => {
   const { recetas } = useRecipes();
   const [searchTerm, setSearchTerm] = useState('');

@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useRecipes } from '../hooks/useRecipes';
-import RecipeCard from '../components/RecipeCard';
 import SearchBar from '../components/SearchBar';
+import RecipeCard from '../components/RecipeCard';
+
 
 const HomePage: React.FC = () => {
   const { recetas } = useRecipes();
-  const [search,setSearch setSearch] = useState('');
+const [search, setSearch] = useState('');
 
   // Obtener las recetas más valoradas (top 3)
   const recetasDestacadas = recetas
@@ -45,7 +46,7 @@ const HomePage: React.FC = () => {
         <h2 className="section-title">⭐ Recetas Más Valoradas</h2>
         <div className="recipes-grid">
           {recetasDestacadas.map(receta => (
-            <RecipeCard key={receta.id} recipe={receta} />
+           <RecipeCard key={receta.id} recipe={receta} />
           ))}
         </div>
         <div className="section-footer">

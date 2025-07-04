@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useRecipes } from '../hooks/useRecipes';
 import RecipeCard from '../components/RecipeCard';
 
+
 const FavoritesPage: React.FC = () => {
   const { recetas, favoritos } = useRecipes();
 

@@ -22,14 +22,12 @@ const CreateRecipePage: React.FC = () => {
   const [errors, setErrors] = useState<RecipeFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // useEffect para enfocar el primer input al cargar la página
   React.useEffect(() => {
     if (nombreInputRef.current) {
       nombreInputRef.current.focus();
     }
   }, []);
 
-  // Función para manejar cambios en los inputs
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
