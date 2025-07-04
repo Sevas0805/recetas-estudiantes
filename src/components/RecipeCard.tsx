@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { Recipe } from '../types/Recipe';
-import { useRecipes } from '../hooks/useRecipes';
+import { useContext } from 'react';
+import { RecipeContext } from '../context/RecipeContext';
 
 interface RecipeCardProps {
   recipe: Recipe;
 }
 
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
-  const { addToFavoritos, removeFromFavoritos, isFavorito } = useRecipes();
+  const context = useContext(RecipeContext);
+  if (!context) return null;
+
+  const { addToFavoritos, removeFromFavoritos, isFavorito } = context;
 
   const handleFavoritoClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -79,5 +83,3 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
     </div>
   );
 };
-
-export default RecipeCard;

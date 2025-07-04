@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useRecipes } from '../hooks/useRecipes';
 import RecipeCard from '../components/RecipeCard';
+import SearchBar from '../components/SearchBar';
 
 const HomePage: React.FC = () => {
   const { recetas } = useRecipes();
+  const [search,setSearch setSearch] = useState('');
 
   // Obtener las recetas más valoradas (top 3)
   const recetasDestacadas = recetas
@@ -34,6 +36,10 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+      {/* Barra de búsqueda */}
+      <div style={{ maxWidth: 400, margin: '2rem auto 0' }}>
+        <SearchBar onSearch={setSearch} />
+      </div>
 
       <section className="featured-section">
         <h2 className="section-title">⭐ Recetas Más Valoradas</h2>
